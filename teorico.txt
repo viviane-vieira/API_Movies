@@ -1,0 +1,63 @@
+aprender a fazer api rest  com node.js e mongo.db
+autenticação com node.js
+
+postmam é um softaware
+senha do mongo atlas : mUXs5iTpIQm25IBd    mongo db projeto wmv_store DRUfN9qWS0G2hKkR
+
+usuario: vivianevgomesdev
+
+primeiro no vs code didtei o npm init -y isso criou package json
+ele inicia o projeto rapido sem precisar de algumas perguntas
+
+
+°2 adicionar dependencias para poder estar criando o projeto com :
+npm install  express nodemon mongoose
+
+a pasta node modules foi criada com as depencencias
+
+na pasta package json eu coonfigurei 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js localhost 3000" // digitei esse comando// aqui podde ser qualquer porta que vc tenha
+  },
+
+  em seguida salvei e fechei.
+  criei uma pasta index.js
+
+  em seguida dei o npm start ele já rodou meu servidor
+
+
+  no index.js vou digitar seguintes comando
+
+  //config inicial
+
+const express = require('express') //vai encontrar esse arquivo na node_modules
+const app  =  express() //vai executar o expres como uma função
+
+
+//forma de ler json/ middlewares : recursos que são executados entre as nossa requisiçoes de respostas
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+)
+ app.use(express.json())
+
+
+
+
+//criar uma rota inicial/ endpoint
+app.get('/',(req,res) =>{ //precisa ser em uma calback
+
+    res.json({message:'oi express!'}) //opcional
+
+})
+
+
+
+//entregar uma porta
+app.listen(3000)        //concretizando a porta que eu havia colocado no package json
+
+
+depois criei o postman para fazer a requisição utilizando a url do localhost 3000
+  
